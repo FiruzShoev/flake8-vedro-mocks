@@ -21,7 +21,6 @@ ignore = MCS001
 Some rules in linter should be configured:
 ```editorconfig
 [flake8]
-is_mock_assert_optional = true  # MCS001, # MCS002 
 mock_name_pattern = (?=.*mock)(?!.*grpc)  # MCS001, # MCS002 
 ```
 

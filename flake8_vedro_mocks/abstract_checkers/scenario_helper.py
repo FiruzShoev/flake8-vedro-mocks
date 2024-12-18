@@ -4,8 +4,6 @@ from typing import List, Tuple
 
 from flake8_vedro_mocks.types import FuncType
 
-SCENARIOS_FOLDER = 'scenarios'
-
 
 class ScenarioHelper:
 

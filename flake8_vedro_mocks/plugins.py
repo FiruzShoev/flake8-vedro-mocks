@@ -10,10 +10,6 @@ from flake8_vedro_mocks.visitors import ScenarioVisitor
 from .config import Config
 
 
-def str_to_bool(string):
-    return string.lower() in ('true', 'yes', 't', '1')
-
-
 class PluginWithFilename(Plugin):
     def __init__(self, tree: ast.AST, filename: str, *args, **kwargs):
         super().__init__(tree)
@@ -44,13 +40,6 @@ class VedroMocksPlugin(PluginWithFilename):
     @classmethod
     def add_options(cls, option_manager: OptionManager):
         option_manager.add_option(
-            '--is-mock-assert-optional',
-            default='true',
-            type=str,
-            parse_from_config=True,
-            help='If mocks should be asserted (e.g., to check mock history)',
-        )
-        option_manager.add_option(
             '--mock-name-pattern',
             default=r"(?=.*mock)(?!.*grpc)",
             type=str,
@@ -62,7 +51,4 @@ class VedroMocksPlugin(PluginWithFilename):
     def parse_options_to_config(
         cls, option_manager: OptionManager, options: argparse.Namespace, args: List[str]
     ) -> Config:
-        return Config(
-            is_mock_assert_optional=str_to_bool(options.is_mock_assert_optional),
-            mock_name_pattern=options.mock_name_pattern,
-        )
+        return Config(mock_name_pattern=options.mock_name_pattern)

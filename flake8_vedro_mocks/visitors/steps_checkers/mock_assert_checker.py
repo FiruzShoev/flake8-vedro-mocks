@@ -21,9 +21,6 @@ from flake8_vedro_mocks.visitors.scenario_visitor import (
 class MockAssertChecker(StepsChecker):
 
     def check_steps(self, context: Context, config) -> List[Error]:
-        if config.is_mock_assert_optional:
-            return []
-
         errors = []
         when_steps = self.get_when_steps(context.steps)
         assertion_steps = self.get_assertion_steps(context.steps)
