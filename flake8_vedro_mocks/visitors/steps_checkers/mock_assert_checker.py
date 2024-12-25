@@ -8,12 +8,10 @@ from flake8_vedro_mocks.errors import (
     MockCallResultNotSavedAsSelfAttribute
 )
 from flake8_vedro_mocks.helpers import (
+    get_assert_statements_from_functions,
+    get_mock_context_managers_from_function,
     is_self_attribute,
     is_self_attribute_asserted
-)
-from flake8_vedro_mocks.helpers.get_nodes_from_functions import (
-    get_assert_statements_from_functions,
-    get_mock_context_managers_from_function
 )
 from flake8_vedro_mocks.visitors.scenario_visitor import (
     Context,
